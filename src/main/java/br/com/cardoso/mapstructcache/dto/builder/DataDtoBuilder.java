@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public final class DataDtoBuilder {
     private String descricao;
     private LocalDateTime date;
+    private Long numeroAleatorio;
 
     private DataDtoBuilder() {
     }
@@ -25,7 +26,12 @@ public final class DataDtoBuilder {
         return this;
     }
 
+    public DataDtoBuilder numeroAleatorio(Long numeroAleatorio) {
+        this.numeroAleatorio = numeroAleatorio;
+        return this;
+    }
+
     public DataDto build() {
-        return new DataDto(descricao, date);
+        return new DataDto(descricao, date, numeroAleatorio);
     }
 }

@@ -8,6 +8,7 @@ public final class DataEntityBuilder {
     private String descricao;
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
+    private Long numeroAleatorio;
 
     private DataEntityBuilder() {
     }
@@ -31,7 +32,12 @@ public final class DataEntityBuilder {
         return this;
     }
 
+    public DataEntityBuilder numeroAleatorio(Long numeroAleatorio) {
+        this.numeroAleatorio = numeroAleatorio;
+        return this;
+    }
+
     public DataEntity build() {
-        return new DataEntity(descricao, creationDate, modificationDate);
+        return new DataEntity(descricao, creationDate, modificationDate, numeroAleatorio);
     }
 }

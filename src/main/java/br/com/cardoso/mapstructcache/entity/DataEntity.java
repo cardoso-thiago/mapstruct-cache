@@ -1,6 +1,5 @@
 package br.com.cardoso.mapstructcache.entity;
 
-import br.com.cardoso.mapstructcache.dto.builder.DataDtoBuilder;
 import br.com.cardoso.mapstructcache.entity.builder.DataEntityBuilder;
 
 import javax.persistence.*;
@@ -16,15 +15,19 @@ public class DataEntity {
     private String descricao;
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
+    private Long numeroAleatorio;
 
-    public DataEntity() {}
+    public DataEntity() {
+    }
 
-    public DataEntity(String descricao, LocalDateTime creationDate, LocalDateTime modificationDate) {
+    public DataEntity(String descricao, LocalDateTime creationDate, LocalDateTime modificationDate, Long numeroAleatorio) {
         this.descricao = descricao;
         this.creationDate = creationDate;
         this.modificationDate = modificationDate;
+        this.numeroAleatorio = numeroAleatorio;
     }
 
+    //Necessário para o MapStruct
     public static DataEntityBuilder builder() {
         return DataEntityBuilder.aDataEntity();
     }
@@ -43,5 +46,9 @@ public class DataEntity {
 
     public LocalDateTime getModificationDate() {
         return modificationDate;
+    }
+
+    public Long getNumeroAleatorio() {
+        return numeroAleatorio;
     }
 }

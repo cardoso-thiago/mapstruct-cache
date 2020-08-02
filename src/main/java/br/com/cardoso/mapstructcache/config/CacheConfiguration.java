@@ -11,7 +11,7 @@ public class CacheConfiguration {
     private final Logger log = Logger.getGlobal();
 
     @CacheEvict(value = {"getAll", "getAllDb"}, allEntries = true)
-    @Scheduled(fixedDelay = 10000 ,  initialDelay = 10000)
+    @Scheduled(fixedDelay = 100000 ,  initialDelay = 100000)
     public void clearCache() {
         log.info("Cache cleared");
     }
