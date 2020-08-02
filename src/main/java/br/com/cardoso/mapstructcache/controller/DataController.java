@@ -38,7 +38,7 @@ public class DataController {
 
     @PostMapping
     @CacheEvict(value = {"getAll", "getAllDb"}, allEntries = true)
-    public ResponseEntity<?> save(@RequestBody DataDto dataDto) {
+    public ResponseEntity<?> save(@Validated @RequestBody DataDto dataDto) {
         log.info("Salvando data");
         DataEntity dataEntity = DataMapper.INSTANCE.dataDtoToData(dataDto);
         DataEntity savedDataEntity = dataRepository.save(dataEntity);
